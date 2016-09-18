@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  form(method='post', action='/categories/add',role='form')
+    .form-group
+      label Title:
+        input.form-control(type='text', name='title', placeholder='Enter Title')
+    button.btn.btn-default(type='submit') Save

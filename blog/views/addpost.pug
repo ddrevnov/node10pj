@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  form(method='post', action='/posts/add', enctype='multipart/form-data', role='form')
+    .form-group
+      label Title:
+        input.form-control(type='text', name='title', placeholder='Enter Title')
+    .form-group
+      label Category:
+        select.form-control(type='text', name='category', placeholder='Category')
+          if categories
+            each category in categories
+              option(value=`${category.title}`) #{category.title}
+    .form-group
+      label Body:
+        textarea.form-control(name='body', id='body')
+    .form-group
+      label Main image:
+        input.form-control(type='file', name='mainimage')
+    .form-group
+      label Author:
+        select.form-control(name='author')
+          option(value='Author1') Author1
+          option(value='Author2') Author2
+    button.btn.btn-default(type='submit') Save
+  script(src='/vendor/ckeditor/ckeditor.js')
+  script
+    | CKEDITOR.replace('body')
